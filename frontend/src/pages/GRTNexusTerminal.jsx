@@ -281,6 +281,14 @@ export default function GRTNexusTerminal() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
+  function renderErrorState() {
+    return (
+      <div style={{ padding: 20, color: "#ff7a7a", textAlign: "center" }}>
+        Unable to load terminal content. Please sign in and ensure the backend is running.
+      </div>
+    );
+  }
+
   const sendMessage = useCallback(async () => {
     const msg = input.trim();
     if (!msg || loading) return;

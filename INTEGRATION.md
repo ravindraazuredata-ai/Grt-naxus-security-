@@ -225,3 +225,74 @@ location /ws {
   proxy_set_header Connection "upgrade";
 }
 ```
+
+---
+
+## 9 — Current Workspace Status
+
+The current repository now includes a complete frontend and backend scaffold for the GRT Nexus terminal and security platform.
+
+### Frontend structure
+- `frontend/package.json`
+- `frontend/vite.config.js`
+- `frontend/index.html`
+- `frontend/.env.example`
+- `frontend/src/main.jsx`
+- `frontend/src/App.jsx`
+- `frontend/src/services/api.js`
+- `frontend/src/context/AuthContext.jsx`
+- `frontend/src/context/NotificationContext.jsx`
+- `frontend/src/components/Layout.jsx`
+- `frontend/src/hooks/useWebSocket.js`
+- `frontend/src/pages/LoginPage.jsx`
+- `frontend/src/pages/DashboardPage.jsx`
+- `frontend/src/pages/GRTNexusTerminal.jsx`
+- `frontend/src/pages/PoliciesPage.jsx`
+- `frontend/src/pages/AdminPage.jsx`
+- `frontend/src/pages/StatCard.jsx`
+
+### Backend structure
+- `backend/package.json`
+- `backend/.env.example`
+- `backend/src/server.js`
+- `backend/src/config/database.js`
+- `backend/src/middleware/authMiddleware.js`
+- `backend/src/routes/auth.js`
+- `backend/src/routes/devices.js`
+- `backend/src/routes/alerts.js`
+- `backend/src/routes/policies.js`
+
+### Database
+- `database/schema.sql`
+
+## 10 — Current Feature Status
+
+- Frontend: React + Vite app with auth, protected routes, dashboard, policies, admin, and terminal views
+- Backend: Express API with login, devices, alerts, and policies endpoints
+- Database: MSSQL schema definitions for users, devices, alerts, notifications, automation rules, and policies
+- Deployment: basic production build instructions and WebSocket proxy sample
+
+## 11 — Next Implementation Steps
+
+1. Install frontend and backend dependencies:
+   - `cd frontend && npm install`
+   - `cd backend && npm install`
+2. Configure environment variables using `.env.example` files.
+3. Set up MSSQL and run `database/schema.sql`.
+4. Start backend:
+   - `cd backend && npm run dev`
+5. Start frontend:
+   - `cd frontend && npm run dev`
+6. Seed at least one user record in the database for login.
+7. Verify API behavior for `/api/auth/login`, `/api/devices`, `/api/alerts`, `/api/policies`.
+8. Improve terminal page by routing AI calls through a secure backend proxy and adding WebSocket event handling.
+
+## 12 — Recommended Enhancements
+
+- Add user registration and admin user management flows
+- Add a WebSocket server in the backend for live device and alert updates
+- Implement device scan workflows and automation rule execution
+- Add responsive mobile UI and PWA support
+- Add desktop/mobile wrappers via Electron or Capacitor
+- Harden backend validation, authorization, and logging
+
